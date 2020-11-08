@@ -42,7 +42,7 @@ void draw() {
 void mouseClicked() {
 	//Reset
 	for (int i = 0; i < particles.length; i++) {
-		if (i == 0 || Math.random() > 0.95f) {
+		if (i == 0 || Math.random() > 0.95) {
 			particles[i] = new OddballParticle();
 		} else {
   		particles[i] = new Particle();
@@ -59,7 +59,7 @@ class Particle {
 		x = Math.random() * 5 + 345;
 		y = Math.random() * 5 + 345;
 		angle = Math.random() * 2 * PI;
-		speed = Math.random() * 2 + 0.5f;
+		speed = Math.random() * 2 + 0.5;
 		size = Math.random()*6;
 		particleColor = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 	}
@@ -68,8 +68,8 @@ class Particle {
 		x += speed * Math.cos(angle);
 		y += speed * Math.sin(angle);
 
-		if (speed > 0.5f) {
-			speed *= 1.01f;
+		if (speed > 0.5) {
+			speed *= 1.01;
 		}
 
 	}
@@ -109,14 +109,14 @@ class OddballParticle extends Particle {
 		//Top
 		if (y <= 0 || y >= 680) {
 			angle = 2*PI - angle;
-    		speed *= 1.005f;
+    		speed *= 1.005;
     		particleColor = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 		}
 
 		//Left
 		if (x <= 0 || x >= 680) {
 			angle = PI - angle;
-			speed *= 1.005f;
+			speed *= 1.005;
 			particleColor = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 		}
 
