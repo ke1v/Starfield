@@ -52,7 +52,7 @@ void mouseClicked() {
 
 class Particle {
 	double x, y, angle, speed, size;
-	int color;
+	int particleColor;
 
 	Particle() {
 		//Start at center, move randomly outwards
@@ -61,7 +61,7 @@ class Particle {
 		angle = Math.random() * 2 * PI;
 		speed = Math.random() * 2 + 0.5f;
 		size = Math.random()*6;
-		color = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+		particleColor = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 	}
 
 	void move() {
@@ -75,7 +75,7 @@ class Particle {
 	}
 
 	void show() {
-		fill(color);
+		fill(particleColor);
 		ellipse((float)x, (float)y, (float)size, (float)size);
 		if (size < 15) {
 			size += Math.random()/8;
@@ -97,7 +97,7 @@ class OddballParticle extends Particle {
 		angle = Math.random() * 2 * PI;
 		speed = 3;
 		size = 15;
-		color = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+		particleColor = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 	}
 
 	void move() {
@@ -110,20 +110,20 @@ class OddballParticle extends Particle {
 		if (y <= 0 || y >= 680) {
 			angle = 2*PI - angle;
     		speed *= 1.005f;
-    		color = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+    		particleColor = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 		}
 
 		//Left
 		if (x <= 0 || x >= 680) {
 			angle = PI - angle;
 			speed *= 1.005f;
-			color = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
+			particleColor = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 		}
 
 	}
 
 	void show() {
-		fill(color);
+		fill(particleColor);
 		ellipse((float)x, (float)y, (float)size, (float)size);
 		if (size < 30) {
 			size += Math.random()/12;
