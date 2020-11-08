@@ -68,7 +68,7 @@ class Particle {
 		x += speed * Math.cos(angle);
 		y += speed * Math.sin(angle);
 
-		if (speed > 0.5) {
+		if (speed < 10) {
 			speed *= 1.01;
 		}
 
@@ -95,7 +95,7 @@ class OddballParticle extends Particle {
 		x = Math.random() * 5 + 345;
 		y = Math.random() * 5 + 345;
 		angle = Math.random() * 2 * PI;
-		speed = 3;
+		speed = 5;
 		size = 15;
 		particleColor = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 	}
@@ -109,14 +109,12 @@ class OddballParticle extends Particle {
 		//Top
 		if (y <= 0 || y >= 680) {
 			angle = 2*PI - angle;
-    		speed *= 1.005;
     		particleColor = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 		}
 
 		//Left
 		if (x <= 0 || x >= 680) {
 			angle = PI - angle;
-			speed *= 1.005;
 			particleColor = color((int) (Math.random() * 255), (int) (Math.random() * 255), (int) (Math.random() * 255));
 		}
 
